@@ -11,7 +11,7 @@ app.listen(port, () => {
 const THREAD_COUNT = 4;
 function createWorker () {
 	return new Promise((resolve, reject) => {
-		const worker = new Worker('./four-workers.js', {
+		const worker = new Worker('./MultiThread/four-workers.js', {
 			workerData: { thread_count: THREAD_COUNT  }
 		});
 

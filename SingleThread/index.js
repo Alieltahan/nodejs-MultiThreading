@@ -13,13 +13,13 @@ app.get('/non-blocking', (req, res) => {
 })
 
 app.get('/blocking', async (req, res) => {
-	const worker = new Worker('./worker');
+	const worker = new Worker('./SingleThread/worker.js');
 	worker.on('message', (message) => {
 		res.status(200).send(`Blocking - ${message}`);
 	})
 
 	worker.on('error', (err) => {
-		res.status(400).send(`Error: ${err.message}`);
+		res.status(400).send(`Error--: ${err.message}`);
 	})
 });
 
